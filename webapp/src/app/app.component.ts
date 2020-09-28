@@ -11,11 +11,11 @@ export class AppComponent {
   title = 'Hvis du klikker her genereres en ny tekst fra et array i en Azure function';
 
   changeText() {
-    this.http.get<string>('api/HttpTriggerCSharp')
-      .toPromise()
+    this.http.get('api/HttpTriggerCSharp').toPromise()
       .then(x => {
         console.log("response from function", x);
-        this.title = x;
-      });
+        this.title = <string> x;
+      })
+      .catch(e => console.error(e));
   }
 }
