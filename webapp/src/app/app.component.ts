@@ -10,6 +10,18 @@ export class AppComponent {
   constructor(private http: HttpClient) {}
   title = 'Hvis du klikker her genereres en ny tekst fra et array i en Azure function';
 
+  scheme: string;
+  trainNumber: string;
+  date: string;
+
+  get link(): string {
+    return this.validLink ? `${this.scheme}:train?number=${this.trainNumber}&date=${this.date}` : null;
+  }
+
+  get validLink(): boolean {
+    return this.scheme != null && this.trainNumber != null && this.date != null;
+  }
+
   changeText() {
     this.http.get('api/HttpTriggerCSharp').toPromise()
       .then(x => {
@@ -18,4 +30,6 @@ export class AppComponent {
       })
       .catch(e => console.error(e));
   }
+
+
 }

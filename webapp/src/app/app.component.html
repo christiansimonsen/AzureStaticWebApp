@@ -302,6 +302,27 @@
 
 <div class="content" role="main">
 
+
+  <form>
+    <label for="scheme">Scheme:</label><br>
+    <input type="text" id="scheme" name="scheme" [(ngModel)]="scheme"><br>
+    <label for="trainNumber">Tognummer:</label><br>
+    <input type="number" id="trainNumber" name="trainNumber" [(ngModel)]="trainNumber"><br>
+    <label for="date">Dato:</label><br>
+    <input type="date" id="date" name="date" [(ngModel)]="date"><br>
+  </form>
+  <br>
+  <br>
+  <div *ngIf="validLink">
+    Link: {{ link }} <br>
+    <a [href]="link">Gå til link med de angivne parametre</a>
+  </div>
+  <br>
+  <br>
+  <br>
+
+
+
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
 
