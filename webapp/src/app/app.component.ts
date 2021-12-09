@@ -22,6 +22,10 @@ export class AppComponent {
     return this.scheme != null && this.trainNumber != null && this.date != null;
   }
 
+  openLink() {
+    window.open(this.link, '_system');
+  }
+
   changeText() {
     this.http.get('api/HttpTriggerCSharp').toPromise()
       .then(x => {

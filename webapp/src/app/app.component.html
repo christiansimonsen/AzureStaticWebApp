@@ -315,13 +315,8 @@
   <br>
   <div *ngIf="validLink">
     Link: {{ link }} <br>
-    <a [href]="link">FYR!</a>
-  </div>
-  <br>
-  <br>
-  <br>
-  <div>
-    <a href="driftportaldev:train?number=43&date=2021-12-08">Teste teste</a>
+    <br>
+    <button (click)="openLink()">Åbn link</button>
   </div>
   <br>
   <br>
